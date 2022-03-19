@@ -3,11 +3,39 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
+import Rails from '@rails/ujs';
+import Turbolinks from 'turbolinks';
+import * as ActiveStorage from '@rails/activestorage';
+import 'channels';
 
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
+Rails.start();
+Turbolinks.start();
+ActiveStorage.start();
+
+// Added for bootstrap
+require('@popperjs/core');
+
+import 'bootstrap';
+
+// Import the specific modules needed (Modal, Alert, etc)
+import { Tooltip, Popover } from 'bootstrap';
+
+// The stylesheet location
+require('../stylesheets/application.scss');
+
+// If using Turbolinks
+document.addEventListener('turbolinks:load', () => {
+	var tooltipTriggerList = [].slice.call(
+		document.querySelectorAll('[data-bs-toggle="tooltip"]')
+	);
+	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+		return new Tooltip(tooltipTriggerEl);
+	});
+
+	var popoverTriggerList = [].slice.call(
+		document.querySelectorAll('[data-bs-toggle="popover"]')
+	);
+	var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+		return new Popover(popoverTriggerEl);
+	});
+});
