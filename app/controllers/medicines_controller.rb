@@ -1,5 +1,5 @@
 class MedicinesController < ApplicationController
-  before_action :set_medicine, only: %i[ show edit update destroy ]
+  before_action :set_medicine, only: %i[show edit update destroy]
 
   # GET /medicines or /medicines.json
   def index
@@ -7,8 +7,7 @@ class MedicinesController < ApplicationController
   end
 
   # GET /medicines/1 or /medicines/1.json
-  def show
-  end
+  def show; end
 
   # GET /medicines/new
   def new
@@ -16,8 +15,7 @@ class MedicinesController < ApplicationController
   end
 
   # GET /medicines/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /medicines or /medicines.json
   def create
@@ -25,7 +23,7 @@ class MedicinesController < ApplicationController
 
     respond_to do |format|
       if @medicine.save
-        format.html { redirect_to medicine_url(@medicine), notice: "Medicine was successfully created." }
+        format.html { redirect_to medicine_url(@medicine), notice: 'Medicine was successfully created.' }
         format.json { render :show, status: :created, location: @medicine }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class MedicinesController < ApplicationController
   def update
     respond_to do |format|
       if @medicine.update(medicine_params)
-        format.html { redirect_to medicine_url(@medicine), notice: "Medicine was successfully updated." }
+        format.html { redirect_to medicine_url(@medicine), notice: 'Medicine was successfully updated.' }
         format.json { render :show, status: :ok, location: @medicine }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class MedicinesController < ApplicationController
     @medicine.destroy
 
     respond_to do |format|
-      format.html { redirect_to medicines_url, notice: "Medicine was successfully destroyed." }
+      format.html { redirect_to medicines_url, notice: 'Medicine was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_medicine
-      @medicine = Medicine.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def medicine_params
-      params.require(:medicine).permit(:meds_name, :meds_cost)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_medicine
+    @medicine = Medicine.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def medicine_params
+    params.require(:medicine).permit(:meds_name, :meds_cost, :meds_category)
+  end
 end

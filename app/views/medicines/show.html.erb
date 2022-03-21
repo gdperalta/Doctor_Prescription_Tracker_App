@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Meds name:</strong>
-  <%= @medicine.meds_name %>
+	<strong>Meds name:</strong>
+	<%= @medicine.meds_name %>
 </p>
-
 <p>
-  <strong>Meds cost:</strong>
-  <%= @medicine.meds_cost %>
+	<strong>Meds cost:</strong>
+	<%= @medicine.meds_cost %>
 </p>
-
+<p>
+	<strong>Meds Category:</strong>
+	<%= @medicine.meds_category %>
+</p>
 <%= link_to 'Edit', edit_medicine_path(@medicine) %> |
 <%= link_to 'Back', medicines_path %>
