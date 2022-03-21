@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1>Prescriptions</h1>
+<h1>Doctor <%= @doctor.doctor_name%>'s Prescriptions</h1>
 <table>
 	<thead>
 		<tr>
@@ -13,9 +13,9 @@
 			<tr>
 				<td><%= prescription.total_cost %></td>
 				<td><%= prescription.doctor_id %></td>
-				<td><%= link_to 'Show', doctor_prescription_path(prescription) %></td>
-				<td><%= link_to 'Edit', edit_doctor_prescription_path(prescription) %></td>
-				<td><%= link_to 'Destroy', prescription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= link_to 'Show', doctor_prescription_path(@doctor, prescription) %></td>
+				<td><%= link_to 'Edit', edit_doctor_prescription_path(@doctor, prescription) %></td>
+				<td><%= link_to 'Destroy', doctor_prescription_path(@doctor, prescription), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
 		<% end %>
 	</tbody>
