@@ -7,12 +7,13 @@ class PrescriptionsController < ApplicationController
   end
 
   def show
-    @presc_medicines = @prescription.presc_medicines
+    presc_medicines = @prescription.presc_medicines
+    @medicines = []
+    presc_medicines.each { |meds| @medicines.push(Medicine.find(meds.medicine_id)) }
   end
 
   def new
     @prescription = @doctor.prescriptions.build
-    # @presc_medicine = @prescription.presc_medicines.build
   end
 
   def edit; end
