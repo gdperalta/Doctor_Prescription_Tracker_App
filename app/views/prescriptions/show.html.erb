@@ -1,14 +1,11 @@
 <p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Total cost:</strong>
-  <%= @prescription.total_cost %>
+	<strong>Total cost:</strong>
+	<%= @prescription.total_cost %>
 </p>
-
 <p>
-  <strong>Doctor:</strong>
-  <%= @prescription.doctor_id %>
+	<strong>Doctor:</strong>
+	<%= @prescription.doctor_id %>
 </p>
-
-<%= link_to 'Edit', edit_prescription_path(@prescription) %> |
-<%= link_to 'Back', prescriptions_path %>
+<%= link_to 'Edit', edit_doctor_prescription_path(@prescription) %> |
+<%= link_to 'Back', doctor_prescriptions_path %>
