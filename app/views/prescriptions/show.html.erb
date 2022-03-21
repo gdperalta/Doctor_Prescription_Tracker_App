@@ -7,9 +7,11 @@
 	<strong>Doctor:</strong>
 	<%= @prescription.doctor_id %>
 </p>
-<p>
-	<strong>Medicine:</strong>
-	<%= @medicine.medicine_id %>
-</p>
+<div>
+	<p><strong>Medcicines:</strong></p>
+	<% @presc_medicines.each do |presc_medicine| %>
+		<p><%= presc_medicine.medicine.id%></p>
+	<% end %>
+</div>
 <%= link_to 'Edit', edit_doctor_prescription_path(@prescription) %> |
 <%= link_to 'Back', doctor_prescriptions_path %>
