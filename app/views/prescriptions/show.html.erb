@@ -7,5 +7,9 @@
 	<strong>Doctor:</strong>
 	<%= @prescription.doctor_id %>
 </p>
+<p>
+	<strong>Medicine:</strong>
+	<%= @medicine.medicine_id %>
+</p>
 <%= link_to 'Edit', edit_doctor_prescription_path(@prescription) %> |
 <%= link_to 'Back', doctor_prescriptions_path %>
