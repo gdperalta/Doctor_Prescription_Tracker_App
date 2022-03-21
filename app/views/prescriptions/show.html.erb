@@ -1,16 +1,20 @@
 <p id="notice"><%= notice %></p>
 <p>
+	<strong>Title:</strong>
+	<%= @prescription.title %>
+</p>
+<p>
+	<strong>Description:</strong>
+	<%= @prescription.description %>
+</p>
+<p>
 	<strong>Total cost:</strong>
 	<%= @prescription.total_cost %>
 </p>
-<p>
-	<strong>Doctor:</strong>
-	<%= @prescription.doctor_id %>
-</p>
 <div>
 	<p><strong>Medcicines:</strong></p>
-	<% @presc_medicines.each do |presc_medicine| %>
-		<p><%= presc_medicine.medicine.id%></p>
+	<% @medicines.each do |medicine| %>
+		<p><%= medicine.meds_name%></p>
 	<% end %>
 </div>
 <%= link_to 'Edit', edit_doctor_prescription_path(@prescription) %> |
