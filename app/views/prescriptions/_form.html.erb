@@ -10,12 +10,19 @@
 		</div>
 	<% end %>
 	<div class="field">
+		<%= form.label :title %>
+		<%= form.text_field :title %>
+	</div>
+	<div class="field">
+		<%= form.label :description %>
+		<%= form.text_field :description %>
+	</div>
+	<div class="field">
 		<%= form.label :total_cost %>
 		<%= form.number_field :total_cost %>
 	</div>
 	<div class="field">
-		<%= form.label :doctor_id %>
-		<%= form.text_field :doctor_id %>
+		<%= form.number_field :doctor_id, type: :hidden %>
 	</div>
 	<fieldset>
 		<legend>Medicine:</legend>
