@@ -17,6 +17,13 @@
 		<%= form.label :doctor_id %>
 		<%= form.text_field :doctor_id %>
 	</div>
+	<fieldset>
+		<legend>Medicine:</legend>
+		<%= form.fields_for :presc_medicines do |presc_meds_form| %>
+			<%= render "presc_medicine_fields", f: presc_meds_form %>
+		<% end %>
+		<%= link_to_add_fields "Add Medicine", form, :presc_medicines %>
+	</fieldset>
 	<div class="actions">
 		<%= form.submit %>
 	</div>
