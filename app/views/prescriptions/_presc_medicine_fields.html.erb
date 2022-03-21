@@ -3,10 +3,7 @@
 	<div>
 		<%= f.number_field :prescription_id, type: :hidden %>
 	</div>
-	<div>
-		<%= f.label :medicine_id %>
-		<%= f.number_field :medicine_id %>
-	</div>
+	<%= f.select :medicine_id, grouped_medicine_options %>
 	<div>
 		<%= link_to "Remove", '#', class: "remove_fields" %>
 	</div>
