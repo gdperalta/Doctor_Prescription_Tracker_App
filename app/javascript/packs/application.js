@@ -12,12 +12,15 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
+require('./nested-forms/addFields');
+require('./nested-forms/removeFields');
+
 // Added for bootstrap
 require('@popperjs/core');
 
 import 'bootstrap';
 
-// Import the specific modules needed (Modal, Alert, etc)
+// Import the specific modules needed for bootstrap
 import { Tooltip, Popover } from 'bootstrap';
 
 // The stylesheet location
