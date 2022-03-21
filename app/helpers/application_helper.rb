@@ -7,4 +7,8 @@ module ApplicationHelper
     end
     link_to(name, '#', class: 'add_fields', data: { id: id, fields: fields.gsub("\n", '') })
   end
+
+  def grouped_medicine_options
+    @medicine_options = Medicine.pluck(:meds_category, :meds_name, :id).group_by(&:shift)
+  end
 end
