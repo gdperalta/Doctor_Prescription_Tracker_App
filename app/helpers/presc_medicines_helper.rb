@@ -1,0 +1,2 @@
+module PrescMedicinesHelper
+end
