@@ -7,13 +7,17 @@ import Rails from '@rails/ujs';
 import Turbolinks from 'turbolinks';
 import * as ActiveStorage from '@rails/activestorage';
 import 'channels';
+import { getTotalCost } from './getCost';
+import { addFields } from './nested-forms/addFields';
+import { removeFields } from './nested-forms/removeFields';
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
-require('./nested-forms/addFields');
-require('./nested-forms/removeFields');
+// require('./nested-forms/addFields');
+// require('./nested-forms/removeFields');
+require('./getCost');
 
 // Added for bootstrap
 require('@popperjs/core');
@@ -41,4 +45,11 @@ document.addEventListener('turbolinks:load', () => {
 	var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 		return new Popover(popoverTriggerEl);
 	});
+});
+//End code for bootsrap
+
+window.addEventListener('turbolinks:load', () => {
+	new addFields();
+	new removeFields();
+	getTotalCost();
 });
