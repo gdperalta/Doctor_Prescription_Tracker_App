@@ -3,8 +3,11 @@
 	<div>
 		<%= f.number_field :prescription_id, type: :hidden %>
 	</div>
-	<%= f.select :medicine_id, grouped_medicine_options %>
+	<div>
+		<%= f.select :medicine_id, grouped_medicine_options, {}, {class: 'input_meds', onchange: 'getCost(event)'}%>
+	</div>
 	<div>
 		<%= link_to "Remove", '#', class: "remove_fields" %>
 	</div>
 </div>
+<%# <%= javascript_pack_tag 'getCost' %> %>
