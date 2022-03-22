@@ -14,6 +14,8 @@ class PrescriptionsController < ApplicationController
 
   def new
     @prescription = @doctor.prescriptions.build
+    # Used to add a prescribed medicine field
+    @prescription.presc_medicines.build
   end
 
   def edit; end
