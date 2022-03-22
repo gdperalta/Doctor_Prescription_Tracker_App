@@ -4,7 +4,7 @@
 		<%= f.number_field :prescription_id, type: :hidden %>
 	</div>
 	<div>
-		<%= f.select :medicine_id, grouped_medicine_options, {}, {class: 'input_meds', onchange: 'getCost(event)'}%>
+		<%= f.select :medicine_id, grouped_medicine_options, {}, {class: 'input_meds', onchange: 'updateCost(event)'}%>
 	</div>
 	<div>
 		<%= link_to "Remove", '#', class: "remove_fields" %>
