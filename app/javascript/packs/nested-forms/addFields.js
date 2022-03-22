@@ -1,4 +1,6 @@
-class addFields {
+import { getTotalCost } from '../getCost';
+
+export class addFields {
 	constructor() {
 		this.links = document.querySelectorAll('.add_fields');
 		this.iterateLinks();
@@ -21,7 +23,6 @@ class addFields {
 		let regexp = linkId ? new RegExp(linkId, 'g') : null;
 		let newFields = regexp ? link.dataset.fields.replace(regexp, time) : null;
 		newFields ? link.insertAdjacentHTML('beforebegin', newFields) : null;
+		getTotalCost();
 	}
 }
-
-window.addEventListener('turbolinks:load', () => new addFields());

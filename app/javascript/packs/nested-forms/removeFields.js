@@ -1,4 +1,6 @@
-class removeFields {
+import { getTotalCost } from '../getCost';
+
+export class removeFields {
 	constructor() {
 		this.iterateLinks();
 	}
@@ -21,8 +23,7 @@ class removeFields {
 		if (deleteField) {
 			deleteField.value = 1;
 			fieldParent.style.display = 'none';
+			getTotalCost();
 		}
 	}
 }
-
-window.addEventListener('turbolinks:load', () => new removeFields());
