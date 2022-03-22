@@ -9,6 +9,8 @@ module ApplicationHelper
   end
 
   def grouped_medicine_options
-    @medicine_options = Medicine.pluck(:meds_category, :meds_name, :id).group_by(&:shift)
+    Medicine.all.map do |m|
+      [m.meds_category, "#{m.meds_name} - Php #{m.meds_cost}", m.id, { 'data-cost': m.meds_cost }]
+    end.group_by(&:shift)
   end
 end
