@@ -951,7 +951,7 @@
     "mkdirp" "^1.0.4"
     "rimraf" "^3.0.2"
 
-"@popperjs/core@^2.10.2":
+"@popperjs/core@^2.10.2", "@popperjs/core@^2.11.4":
   "integrity" "sha512-q/ytXxO5NKvyT37pmisQAItCFqA7FD/vNb8dgaJy3/630Fsc+Mz9/9f2SziBoIZ30TJooXyTwZmhi1zjXmObYg=="
   "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.11.4.tgz"
   "version" "2.11.4"
@@ -3862,6 +3862,11 @@
     "@types/node" "*"
     "merge-stream" "^2.0.0"
     "supports-color" "^7.0.0"
+
+"jquery@^3.6.0":
+  "integrity" "sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw=="
+  "resolved" "https://registry.npmjs.org/jquery/-/jquery-3.6.0.tgz"
+  "version" "3.6.0"
 
 "js-tokens@^4.0.0":
   "integrity" "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
