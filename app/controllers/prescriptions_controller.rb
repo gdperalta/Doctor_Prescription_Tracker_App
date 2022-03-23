@@ -7,9 +7,7 @@ class PrescriptionsController < ApplicationController
   end
 
   def show
-    presc_medicines = @prescription.presc_medicines
-    @medicines = []
-    presc_medicines.each { |meds| @medicines.push(Medicine.find(meds.medicine_id)) }
+    @presc_medicines = @prescription.presc_medicines
   end
 
   def new
@@ -73,6 +71,6 @@ class PrescriptionsController < ApplicationController
 
   def prescription_params
     params.require(:prescription).permit(:total_cost, :doctor_id, :title, :description,
-                                         presc_medicines_attributes: %i[id prescription_id medicine_id _destroy])
+                                         presc_medicines_attributes: %i[id prescription_id medicine_id discount _destroy])
   end
 end
