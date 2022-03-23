@@ -1,0 +1,24 @@
+@use '../utilities/variables';
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+	background-color: lighten($purple-100, 10%);
+}
+
+.table-link {
+	text-decoration: none;
+	color: $green-500;
+	&:hover {
+		text-decoration: underline;
+		color: $green-700;
+	}
+}
+
+.btn-outline-primary {
+	border-color: $green-500;
+	color: $green-500;
+	&:hover {
+		background-color: $green-300;
+		color: white;
+	}
+}
