@@ -1,4 +1,4 @@
-import { getTotalCost } from '../getCost';
+import { getTotalCost, handleEvents } from '../getCost';
 
 export class addFields {
 	constructor() {
@@ -23,6 +23,7 @@ export class addFields {
 		let regexp = linkId ? new RegExp(linkId, 'g') : null;
 		let newFields = regexp ? link.dataset.fields.replace(regexp, time) : null;
 		newFields ? link.insertAdjacentHTML('beforebegin', newFields) : null;
+		handleEvents();
 		getTotalCost();
 	}
 }
