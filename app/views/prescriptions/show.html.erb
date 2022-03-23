@@ -13,9 +13,12 @@
 </p>
 <div>
 	<p><strong>Medcicines:</strong></p>
-	<% @medicines.each do |medicine| %>
-		<p><%= medicine.meds_name%></p>
-	<% end %>
+	<p>
+		<% @presc_medicines.each do |presc_medicine| %>
+			<%= get_medicine presc_medicine %>
+			<%= compute_discount presc_medicine%>
+		<% end %>
+	</p>
 </div>
 <%= link_to 'Edit', edit_doctor_prescription_path(@prescription) %> |
 <%= link_to 'Back', doctor_prescriptions_path %>
