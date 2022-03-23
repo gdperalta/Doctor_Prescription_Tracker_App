@@ -1,28 +1,31 @@
 <p id="notice"><%= notice %></p>
 <h1>Medicines</h1>
 <div class='table-responsive'>
-	<table class='table table-striped table-hover'>
-		<thead class='table-primary'>
+	<table class='table table-striped'>
+		<thead class='bg-primary'>
 			<tr>
 				<th>Medicine Name</th>
 				<th>Cost</th>
 				<th>Category</th>
-				<th colspan="3"></th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @medicines.each do |medicine| %>
 				<tr>
-					<td><%= medicine.meds_name %></td>
+					<td><%= link_to "#{medicine.meds_name}", medicine, class: 'table-link' %></td>
 					<td><%= medicine.meds_cost %></td>
 					<td><%= medicine.meds_category %></td>
-					<td><%= link_to 'Show', medicine %></td>
-					<td><%= link_to 'Edit', edit_medicine_path(medicine) %></td>
-					<td><%= link_to 'Destroy', medicine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					<td>
+						<div class="btn-group" role="group" aria-label="Basic outlined example">
+							<%= link_to 'Edit', edit_medicine_path(medicine), class: 'btn btn-outline-primary' %>
+							<%= link_to 'Destroy', medicine, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary' %>
+						</div>
+					</td>
 				</tr>
 			<% end %>
 		</tbody>
 	</table>
 </div>
 <br>
-<%= link_to 'New Medicine', new_medicine_path %>
+<%= link_to 'New Medicine', new_medicine_path, class: 'btn btn-outline-success'  %>
