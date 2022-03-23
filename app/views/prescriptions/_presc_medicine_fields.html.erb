@@ -6,9 +6,9 @@
 	<div>
 		<%= f.select :medicine_id, grouped_medicine_options, {}, {class: 'input_meds'}%>
 		<%= f.range_field :discount, in: 0..100, class: 'discount_fields' %>
-		<output></output>
-	</div>
-	<div>
-		<%= link_to "Remove", '#', class: "remove_fields" %>
-	</div>
+		<input class='discount_output' type='number' min='0' max='100'></input>
+</div>
+<div>
+	<%= link_to "Remove", '#', class: "remove_fields" %>
+</div>
 </div>
