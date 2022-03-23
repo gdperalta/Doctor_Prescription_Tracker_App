@@ -1,1 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+	background-color: #bbeaff; // Choose your own color here
+}
