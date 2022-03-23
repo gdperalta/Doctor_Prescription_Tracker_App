@@ -1,4 +1,4 @@
-import { getTotalCost } from '../getCost';
+import { getTotalCost, handleEvents } from '../getCost';
 
 export class removeFields {
 	constructor() {
@@ -22,7 +22,8 @@ export class removeFields {
 			: null;
 		if (deleteField) {
 			deleteField.value = 1;
-			fieldParent.style.display = 'none';
+			fieldParent.remove();
+			handleEvents();
 			getTotalCost();
 		}
 	}
