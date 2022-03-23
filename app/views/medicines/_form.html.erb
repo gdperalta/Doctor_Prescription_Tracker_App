@@ -9,19 +9,19 @@
 			</ul>
 		</div>
 	<% end %>
-	<div class="field">
-		<%= form.label :meds_name %>
-		<%= form.text_field :meds_name %>
+	<div class="field form-floating mb-3">
+		<%= form.text_field :meds_name, class: 'form-control', placeholder: 'Medicine name' %>
+		<%= form.label :meds_name, 'Medicine Name', class: 'form-label' %>
 	</div>
-	<div class="field">
-		<%= form.label :meds_cost %>
-		<%= form.number_field :meds_cost %>
+	<div class="field form-floating mb-3">
+		<%= form.number_field :meds_cost, class: 'form-control', placeholder: 'Cost in PHP' %>
+		<%= form.label :meds_cost, 'Cost', class: 'form-label'  %>
 	</div>
-	<div class="field">
-		<%= form.label :meds_category %>
-		<%= form.text_field :meds_category %>
+	<div class="field form-floating mb-3">
+		<%= form.text_field :meds_category, class: 'form-control', placeholder: 'Medicine Category' %>
+		<%= form.label :meds_category, 'Category', class: 'form-label'  %>
 	</div>
 	<div class="actions">
-		<%= form.submit %>
+		<%= form.submit class: 'btn btn-outline-success' %>
 	</div>
 <% end %>

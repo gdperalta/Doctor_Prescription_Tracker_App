@@ -3,12 +3,13 @@
 	<div>
 		<%= f.number_field :prescription_id, type: :hidden %>
 	</div>
-	<div>
-		<%= f.select :medicine_id, grouped_medicine_options, {}, {class: 'input_meds'}%>
-		<%= f.range_field :discount, in: 0..100, class: 'discount_fields' %>
-		<input class='discount_output' type='number' min='0' max='100'></input>
+	<div class='form-floating mb-2'>
+		<%= f.select :medicine_id, grouped_medicine_options, {}, {class: 'input_meds form-select'}%>
+		<%= f.label :medicine_id, 'Prescribed Medicine'%>
+	</div>
+	<%= f.range_field :discount, in: 0..100, class: 'discount_fields form-range' %>
+	<input class='discount_output form-control' type='number' min='0' max='100'>
 </div>
 <div>
 	<%= link_to "Remove", '#', class: "remove_fields" %>
-</div>
 </div>

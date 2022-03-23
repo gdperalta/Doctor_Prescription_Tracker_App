@@ -9,17 +9,17 @@
 			</ul>
 		</div>
 	<% end %>
-	<div class="field">
-		<%= form.label :title %>
-		<%= form.text_field :title %>
+	<div class="field form-floating mb-3">
+		<%= form.text_field :title, class: 'form-control', placeholder: 'Title' %>
+		<%= form.label :title, 'Title' %>
 	</div>
-	<div class="field">
-		<%= form.label :description %>
-		<%= form.text_field :description %>
+	<div class="field form-floating mb-3">
+		<%= form.text_field :description, class: 'form-control', placeholder: 'Description' %>
+		<%= form.label :description, 'Description' %>
 	</div>
-	<div class="field">
-		<%= form.label :total_cost %>
-		<%= form.number_field :total_cost, step: :any, class: 'total_cost' %>
+	<div class="field form-floating mb-3">
+		<%= form.number_field :total_cost, step: :any, class: 'total_cost form-control', placeholder: 'Total' %>
+		<%= form.label :total_cost, 'Total Cost' %>
 	</div>
 	<div class="field">
 		<%= form.number_field :doctor_id, type: :hidden %>
@@ -32,6 +32,6 @@
 		<%= link_to_add_fields "Add Medicine", form, :presc_medicines %>
 	</fieldset>
 	<div class="actions">
-		<%= form.submit %>
+		<%= form.submit class: 'btn btn-outline-success' %>
 	</div>
 <% end %>
