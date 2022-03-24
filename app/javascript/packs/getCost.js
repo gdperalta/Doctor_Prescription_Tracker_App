@@ -9,7 +9,11 @@ const showDiscountValue = () => {
 };
 
 const changeDiscountValue = (e) => {
-	let discountField = e.target.previousElementSibling;
+	let fieldParent = e.target.closest('.discount-container');
+	let discountField = fieldParent
+		? fieldParent.querySelector('input[type="range"]')
+		: null;
+	let d = fieldParent.querySelector('input[type="range"]');
 	discountField.value = e.target.value;
 	getTotalCost();
 };
@@ -20,8 +24,7 @@ export const getTotalCost = () => {
 	const totalCost = document.querySelector('.total_cost');
 	let total = 0;
 
-	if (!medicines.length) return;
-
+	if (!medicines.length && !discounts.length && !totalCost) return;
 	medicines.forEach((medicine, index) => {
 		total +=
 			+medicine.options[medicine.selectedIndex].dataset.cost *
