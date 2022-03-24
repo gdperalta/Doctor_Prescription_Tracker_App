@@ -1,15 +1,17 @@
-<div class="nested-fields">
+<div class="nested-fields row g-2">
 	<%= f.hidden_field :_destroy %>
 	<div>
 		<%= f.number_field :prescription_id, type: :hidden %>
 	</div>
-	<div class='form-floating mb-2'>
+	<div class='form-floating col-auto mb-2'>
 		<%= f.select :medicine_id, grouped_medicine_options, {}, {class: 'input_meds form-select'}%>
 		<%= f.label :medicine_id, 'Prescribed Medicine'%>
 	</div>
-	<%= f.range_field :discount, in: 0..100, class: 'discount_fields form-range' %>
-	<input class='discount_output form-control' type='number' min='0' max='100'>
-</div>
-<div>
-	<%= link_to "Remove", '#', class: "remove_fields" %>
+	<div class='discount-container col-auto'>
+		<%= f.range_field :discount, in: 0..100, class: 'discount_fields form-range' %>
+		<input class='discount_output form-control' type='number' min='0' max='100'>
+	</div>
+	<div>
+		<%= link_to "Remove", '#', class: "remove_fields" %>
+	</div>
 </div>
