@@ -10,6 +10,7 @@ import 'channels';
 import { getTotalCost, handleEvents } from './getCost';
 import { addFields } from './nested-forms/addFields';
 import { removeFields } from './nested-forms/removeFields';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 Rails.start();
 Turbolinks.start();
