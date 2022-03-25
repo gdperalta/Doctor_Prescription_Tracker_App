@@ -10,6 +10,11 @@
 	</head>
 	<body>
 		<%= render 'home/header' %>
-		<%= yield %>
+		<div class='table-responsive container-xxl'>
+			<% if notice%>
+				<%= render 'layouts/alerts' %>
+			<% end %>
+			<%= yield %>
+		</div>
 	</body>
 </html>
