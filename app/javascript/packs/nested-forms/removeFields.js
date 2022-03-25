@@ -7,7 +7,7 @@ export class removeFields {
 
 	iterateLinks() {
 		document.addEventListener('click', (e) => {
-			if (e.target && e.target.className == 'remove_fields') {
+			if (e.target && e.target.classList.contains('remove_fields')) {
 				this.handleClick(e.target, e);
 			}
 		});
