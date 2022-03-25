@@ -1,34 +1,30 @@
-<p id="notice"><%= notice %></p>
-<h1>Doctors</h1>
-<div class='table-responsive'>
-	<table class='table table-striped'>
-		<thead class='bg-primary'>
+<table class='table table-striped border caption-top'>
+	<caption>List of Doctors</caption>
+	<thead class='bg-primary'>
+		<tr class='heading-color'>
+			<th>Doctor name</th>
+			<th>Doctor phone</th>
+			<th>Specialization</th>
+			<th>Hospital</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @doctors.each do |doctor| %>
 			<tr>
-				<th>Doctor name</th>
-				<th>Doctor phone</th>
-				<th>Specialization</th>
-				<th>Hospital</th>
-				<th>Actions</th>
+				<td><%= link_to "#{doctor.doctor_name}", doctor, class: 'table-link' %></td>
+				<td><%= doctor.doctor_phone %></td>
+				<td><%= doctor.specialization %></td>
+				<td><%= doctor.hospital %></td>
+				<td>
+					<div class="btn-group" role="group" aria-label="Basic outlined example">
+						<%= link_to 'See Prescriptions', doctor_prescriptions_path(doctor), class: 'btn btn-outline-primary' %>
+						<%= link_to 'Edit', edit_doctor_path(doctor), class: 'btn btn-outline-primary' %>
+						<%= link_to 'Delete', doctor, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary' %>
+					</div>
+				</td>
 			</tr>
-		</thead>
-		<tbody>
-			<% @doctors.each do |doctor| %>
-				<tr>
-					<td><%= link_to "#{doctor.doctor_name}", doctor, class: 'table-link' %></td>
-					<td><%= doctor.doctor_phone %></td>
-					<td><%= doctor.specialization %></td>
-					<td><%= doctor.hospital %></td>
-					<td>
-						<div class="btn-group" role="group" aria-label="Basic outlined example">
-							<%= link_to 'See Prescriptions', doctor_prescriptions_path(doctor), class: 'btn btn-outline-primary' %>
-							<%= link_to 'Edit', edit_doctor_path(doctor), class: 'btn btn-outline-primary' %>
-							<%= link_to 'Destroy', doctor, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary' %>
-						</div>
-					</td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-</div>
-<br>
+		<% end %>
+	</tbody>
+</table>
 <%= link_to 'Add New Doctor', new_doctor_path, class: 'btn btn-outline-success' %>

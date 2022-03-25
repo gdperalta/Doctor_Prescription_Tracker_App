@@ -1,31 +1,27 @@
-<p id="notice"><%= notice %></p>
-<h1>Medicines</h1>
-<div class='table-responsive'>
-	<table class='table table-striped'>
-		<thead class='bg-primary'>
+<table class='table table-striped border caption-top'>
+	<caption>List of Medicines</caption>
+	<thead class='bg-primary'>
+		<tr class='heading-color'>
+			<th>Medicine Name</th>
+			<th>Cost</th>
+			<th>Category</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @medicines.each do |medicine| %>
 			<tr>
-				<th>Medicine Name</th>
-				<th>Cost</th>
-				<th>Category</th>
-				<th>Actions</th>
+				<td><%= link_to "#{medicine.meds_name}", medicine, class: 'table-link' %></td>
+				<td><%= medicine.meds_cost %></td>
+				<td><%= medicine.meds_category %></td>
+				<td>
+					<div class="btn-group" role="group" aria-label="Basic outlined example">
+						<%= link_to 'Edit', edit_medicine_path(medicine), class: 'btn btn-outline-primary' %>
+						<%= link_to 'Delete', medicine, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary' %>
+					</div>
+				</td>
 			</tr>
-		</thead>
-		<tbody>
-			<% @medicines.each do |medicine| %>
-				<tr>
-					<td><%= link_to "#{medicine.meds_name}", medicine, class: 'table-link' %></td>
-					<td><%= medicine.meds_cost %></td>
-					<td><%= medicine.meds_category %></td>
-					<td>
-						<div class="btn-group" role="group" aria-label="Basic outlined example">
-							<%= link_to 'Edit', edit_medicine_path(medicine), class: 'btn btn-outline-primary' %>
-							<%= link_to 'Destroy', medicine, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary' %>
-						</div>
-					</td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-</div>
-<br>
-<%= link_to 'New Medicine', new_medicine_path, class: 'btn btn-outline-success'  %>
+		<% end %>
+	</tbody>
+</table>
+<%= link_to 'Add New Medicine', new_medicine_path, class: 'btn btn-outline-success'  %>
