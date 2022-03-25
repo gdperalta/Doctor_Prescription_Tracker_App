@@ -1,0 +1,14 @@
+.link-color,
+.heading-color {
+	color: white !important;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.sort_link {
+	color: white;
+	text-decoration: none;
+	&:hover {
+		color: white;
+	}
+}
