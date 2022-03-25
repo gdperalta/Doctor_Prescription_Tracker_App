@@ -1,10 +1,23 @@
-<table class='table table-striped border caption-top'>
+<%= render 'search_form' %>
+<table class='table table-striped border'>
 	<caption>List of Medicines</caption>
 	<thead class='bg-primary'>
 		<tr class='heading-color'>
-			<th>Medicine Name</th>
-			<th>Cost</th>
-			<th>Category</th>
+			<th>
+				<%= sort_link(@q, :meds_name) do %>
+					<strong class='text-white'>Name</strong>
+				<% end %>
+			</th>
+			<th>
+				<%= sort_link(@q, :meds_cost) do %>
+					<strong class='text-white'>Cost (Php)</strong>
+				<% end %>
+			</th>
+			<th>
+				<%= sort_link(@q, :meds_category) do %>
+					<strong class='text-white'>Category</strong>
+				<% end %>
+			</th>
 			<th>Actions</th>
 		</tr>
 	</thead>

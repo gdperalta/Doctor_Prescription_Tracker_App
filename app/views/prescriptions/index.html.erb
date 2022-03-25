@@ -1,10 +1,19 @@
-<table class='table table-striped border caption-top'>
+<table class='table table-striped border'>
 	<caption>List of Doctor <%= @doctor.doctor_name%>'s Prescriptions</caption>
 	<thead class='bg-primary'>
 		<tr class='heading-color'>
-			<th>Title</th>
+			<th>
+				<%= sort_link(@q, :title) do %>
+					<strong class='text-white'>Title</strong>
+				<% end %>
+			</th>
 			<th>Description</th>
-			<th>Total cost</th>
+			<th>
+				<%= sort_link(@q, :total_cost) do %>
+					<strong class='text-white'>Total Cost (Php)</strong>
+				<% end %>
+			</th>
+			<th>Prescribed Medicines</th>
 			<th>Actions</th>
 		</tr>
 	</thead>
@@ -14,6 +23,16 @@
 				<td><%= link_to "#{prescription.title}", doctor_prescription_path(@doctor, prescription), class: 'table-link' %></td>
 				<td><%= prescription.description %></td>
 				<td><%= prescription.total_cost %></td>
+				<td>
+					<ul>
+						<% prescription.presc_medicines.each do |presc_medicine| %>
+							<li>
+								<%= presc_medicine.quantity%>
+								<%= get_medicine presc_medicine %>
+							</li>
+						<% end %>
+					</ul>
+				</td>
 				<td>
 					<div class="btn-group" role="group" aria-label="Basic outlined example">
 						<%= link_to 'Edit', edit_doctor_prescription_path(@doctor, prescription), class: 'btn btn-outline-primary' %>

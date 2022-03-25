@@ -1,11 +1,24 @@
-<table class='table table-striped border caption-top'>
+<%= render 'search_form' %>
+<table class='table table-striped border'>
 	<caption>List of Doctors</caption>
 	<thead class='bg-primary'>
 		<tr class='heading-color'>
-			<th>Doctor name</th>
-			<th>Doctor phone</th>
-			<th>Specialization</th>
-			<th>Hospital</th>
+			<th>
+				<%= sort_link(@q, :doctor_name) do %>
+					<strong class='text-white'>Name</strong>
+				<% end %>
+			</th>
+			<th>Contact Number</th>
+			<th>
+				<%= sort_link(@q, :specialization) do %>
+					<strong class='text-white'>Specialization</strong>
+				<% end %>
+			</th>
+			<th>
+				<%= sort_link(@q, :hospital) do %>
+					<strong class='text-white'>Hospital</strong>
+				<% end %>
+			</th>
 			<th>Actions</th>
 		</tr>
 	</thead>
