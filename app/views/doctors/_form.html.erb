@@ -1,7 +1,8 @@
 <%= form_with model: doctor, class: 'row g-2' do |form| %>
 	<% if doctor.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+		<div class="alert alert-danger" role="alert" id="error_explanation">
+			<h4 class='alert-heading'><%= pluralize(doctor.errors.count, "error") %> prohibited this doctor from being saved:</h4>
+			<hr>
 			<ul>
 				<% doctor.errors.each do |error| %>
 					<li><%= error.full_message %></li>
