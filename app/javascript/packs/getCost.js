@@ -30,7 +30,7 @@ export const getTotalCost = () => {
 			+medicine.options[medicine.selectedIndex].dataset.cost *
 			(1 - discounts[index].value / 100);
 	});
-	totalCost.value = total;
+	totalCost.value = total.toFixed(2);
 
 	showDiscountValue();
 };
