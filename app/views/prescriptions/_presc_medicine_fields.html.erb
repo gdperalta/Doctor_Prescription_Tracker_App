@@ -1,17 +1,22 @@
-<div class="nested-fields row g-2">
+<div class="nested-fields row">
 	<%= f.hidden_field :_destroy %>
 	<div>
 		<%= f.number_field :prescription_id, type: :hidden %>
 	</div>
-	<div class='form-floating col-auto mb-2'>
-		<%= f.select :medicine_id, grouped_medicine_options, {}, {class: 'input_meds form-select'}%>
-		<%= f.label :medicine_id, 'Prescribed Medicine'%>
-	</div>
-	<div class='discount-container col-auto'>
-		<%= f.range_field :discount, in: 0..100, class: 'discount_fields form-range' %>
-		<input class='discount_output form-control' type='number' min='0' max='100'>
+	<div class='row align-items-center mb-3'>
+		<div class='form-floating col-auto'>
+			<%= f.select :medicine_id, grouped_medicine_options, {}, {class: 'input_meds form-select'}%>
+			<%= f.label :medicine_id, 'Prescribed Medicine', class: 'ms-1'%>
+		</div>
+		<div class='discount-container col-auto d-flex align-items-center'>
+			<div class='form-floating col-3 me-3'>
+				<input id='discount-output' class='discount_output form-control' type='number' min='0' max='100'>
+				<label for="discount-output">Discount (%)</label>
+			</div>
+			<%= f.range_field :discount, in: 0..100, class: 'discount_fields form-range' %>
+		</div>
 	</div>
 	<div>
-		<%= link_to "Remove", '#', class: "remove_fields" %>
+		<%= link_to "Remove", '#', class: "remove_fields btn btn-outline-danger mb-3" %>
 	</div>
 </div>
