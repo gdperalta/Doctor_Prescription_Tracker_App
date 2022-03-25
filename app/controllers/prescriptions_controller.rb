@@ -1,6 +1,6 @@
 class PrescriptionsController < ApplicationController
   before_action :set_prescription, only: %i[show edit update destroy]
-  before_action :get_doctor, only: %i[index show new create edit update destroy]
+  before_action :find_doctor, only: %i[index show new create edit update destroy]
 
   def index
     @prescriptions = @doctor.prescriptions
@@ -61,7 +61,7 @@ class PrescriptionsController < ApplicationController
 
   private
 
-  def get_doctor
+  def find_doctor
     @doctor = Doctor.find(params[:doctor_id])
   end
 
@@ -71,6 +71,6 @@ class PrescriptionsController < ApplicationController
 
   def prescription_params
     params.require(:prescription).permit(:total_cost, :doctor_id, :title, :description,
-                                         presc_medicines_attributes: %i[id prescription_id medicine_id discount _destroy])
+                                         presc_medicines_attributes: %i[id prescription_id medicine_id quantity discount _destroy])
   end
 end
