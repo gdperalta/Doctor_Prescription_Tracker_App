@@ -1,0 +1,30 @@
+// $cyan-400: #77cccc;
+
+.btn-primary {
+	@include button-variant(
+		$cyan-500,
+		darken($cyan-500, 7.5%),
+		darken($cyan-500, 10%),
+		lighten($cyan-500, 5%),
+		lighten($cyan-500, 10%),
+		darken($cyan-500, 30%)
+	);
+}
+
+.btn-outline-primary {
+	@include button-outline-variant(
+		$cyan-500,
+		#222222,
+		lighten($cyan-500, 5%),
+		$cyan-500
+	);
+	&:hover {
+		color: white;
+	}
+}
+
+.btn-outline-light {
+	&:hover {
+		color: $primary !important;
+	}
+}
