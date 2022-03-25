@@ -20,14 +20,16 @@ const changeDiscountValue = (e) => {
 
 export const getTotalCost = () => {
 	const medicines = document.querySelectorAll('.input_meds');
+	const quantities = document.querySelectorAll('.quantity_fields');
 	const discounts = document.querySelectorAll('.discount_fields');
 	const totalCost = document.querySelector('.total_cost');
 	let total = 0;
 
-	if (!medicines.length && !discounts.length && !totalCost) return;
+	if (!medicines.length) return;
 	medicines.forEach((medicine, index) => {
 		total +=
 			+medicine.options[medicine.selectedIndex].dataset.cost *
+			quantities[index].value *
 			(1 - discounts[index].value / 100);
 	});
 	totalCost.value = total.toFixed(2);
@@ -37,6 +39,7 @@ export const getTotalCost = () => {
 
 export const handleEvents = () => {
 	const medicines = document.querySelectorAll('.input_meds');
+	const quantities = document.querySelectorAll('.quantity_fields');
 	const discounts = document.querySelectorAll('.discount_fields');
 	const discountOutput = document.querySelectorAll('.discount_output');
 	const l = medicines.length;
@@ -45,6 +48,7 @@ export const handleEvents = () => {
 		if (!medicines[i].onchange) {
 			medicines[i].onchange = getTotalCost;
 			discounts[i].onchange = getTotalCost;
+			quantities[i].oninput = getTotalCost;
 			discountOutput[i].oninput = () => {
 				changeDiscountValue(event);
 			};
