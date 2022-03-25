@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       # delete 'presc_medicines/:id', to: 'presc_medicines#destroy'
     end
   end
+  get 'prescriptions', to: 'prescriptions#all_index', as: 'prescriptions'
 
   root 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
