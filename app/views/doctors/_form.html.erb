@@ -1,33 +1,32 @@
-<div class='container-xxl'>
-	<%= form_with model: doctor, class: 'row g-2' do |form| %>
-		<% if doctor.errors.any? %>
-			<div id="error_explanation">
-				<h2><%= pluralize(doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
-				<ul>
-					<% doctor.errors.each do |error| %>
-						<li><%= error.full_message %></li>
-					<% end %>
-				</ul>
-			</div>
-		<% end %>
-		<div class="field form-floating mb-3 col-12">
-			<%= form.text_field :doctor_name, class: 'form-control', placeholder: 'Doctor Name' %>
-			<%= form.label :doctor_name, "Doctor's Name", class: 'form-label'  %>
-		</div>
-		<div class="field form-floating mb-3  col-12">
-			<%= form.text_field :doctor_phone, class: 'form-control', placeholder: 'Contact Number' %>
-			<%= form.label :doctor_phone, 'Contact Number', class: 'form-label'  %>
-		</div>
-		<div class="field form-floating mb-3 col-md-6">
-			<%= form.text_field :specialization, class: 'form-control', placeholder: 'Specialization' %>
-			<%= form.label :specialization, 'Specialization', class: 'form-label'  %>
-		</div>
-		<div class="field form-floating mb-3 col-md-6">
-			<%= form.text_field :hospital, class: 'form-control', placeholder: 'Hospital/Clinic' %>
-			<%= form.label :hospital, 'Hospital/Clinic', class: 'form-label'  %>
-		</div>
-		<div class="actions">
-			<%= form.submit class: 'btn btn-outline-success' %>
+<%= form_with model: doctor, class: 'row g-2' do |form| %>
+	<% if doctor.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+			<ul>
+				<% doctor.errors.each do |error| %>
+					<li><%= error.full_message %></li>
+				<% end %>
+			</ul>
 		</div>
 	<% end %>
-</div>
+	<div class="field form-floating mb-3 col-12">
+		<%= form.text_field :doctor_name, class: 'form-control', placeholder: 'Doctor Name' %>
+		<%= form.label :doctor_name, "Doctor's Name", class: 'form-label'  %>
+	</div>
+	<div class="field form-floating mb-3  col-12">
+		<%= form.text_field :doctor_phone, class: 'form-control', placeholder: 'Contact Number' %>
+		<%= form.label :doctor_phone, 'Contact Number', class: 'form-label'  %>
+	</div>
+	<div class="field form-floating mb-3 col-md-6">
+		<%= form.text_field :specialization, class: 'form-control', placeholder: 'Specialization' %>
+		<%= form.label :specialization, 'Specialization', class: 'form-label'  %>
+	</div>
+	<div class="field form-floating mb-3 col-md-6">
+		<%= form.text_field :hospital, class: 'form-control', placeholder: 'Hospital/Clinic' %>
+		<%= form.label :hospital, 'Hospital/Clinic', class: 'form-label'  %>
+	</div>
+	<div class="actions">
+		<%= form.submit 'Submit', class: 'btn btn-outline-success' %>
+		<%= link_to 'Cancel', doctors_path, class: 'btn btn-outline-danger' %>
+	</div>
+<% end %>

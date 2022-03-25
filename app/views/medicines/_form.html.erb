@@ -1,29 +1,28 @@
-<div class='container-xxl'>
-	<%= form_with model: medicine, class: 'row g-2' do |form| %>
-		<% if medicine.errors.any? %>
-			<div id="error_explanation">
-				<h2><%= pluralize(medicine.errors.count, "error") %> prohibited this medicine from being saved:</h2>
-				<ul>
-					<% medicine.errors.each do |error| %>
-						<li><%= error.full_message %></li>
-					<% end %>
-				</ul>
-			</div>
-		<% end %>
-		<div class="field form-floating mb-3">
-			<%= form.text_field :meds_name, class: 'form-control form-control-lg', placeholder: 'Medicine name' %>
-			<%= form.label :meds_name, 'Medicine Name', class: 'form-label' %>
-		</div>
-		<div class="field form-floating mb-3 col-md-8">
-			<%= form.text_field :meds_category, class: 'form-control form-control-lg', placeholder: 'Medicine Category' %>
-			<%= form.label :meds_category, 'Category', class: 'form-label'  %>
-		</div>
-		<div class="field form-floating mb-3 col-md-4">
-			<%= form.number_field :meds_cost, class: 'form-control form-control-lg', placeholder: 'Cost in PHP' %>
-			<%= form.label :meds_cost, 'Cost', class: 'form-label'  %>
-		</div>
-		<div class="actions">
-			<%= form.submit class: 'btn btn-outline-success' %>
+<%= form_with model: medicine, class: 'row g-2' do |form| %>
+	<% if medicine.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(medicine.errors.count, "error") %> prohibited this medicine from being saved:</h2>
+			<ul>
+				<% medicine.errors.each do |error| %>
+					<li><%= error.full_message %></li>
+				<% end %>
+			</ul>
 		</div>
 	<% end %>
-</div>
+	<div class="field form-floating mb-3">
+		<%= form.text_field :meds_name, class: 'form-control form-control-lg', placeholder: 'Medicine name' %>
+		<%= form.label :meds_name, 'Medicine Name', class: 'form-label' %>
+	</div>
+	<div class="field form-floating mb-3 col-md-8">
+		<%= form.text_field :meds_category, class: 'form-control form-control-lg', placeholder: 'Medicine Category' %>
+		<%= form.label :meds_category, 'Category', class: 'form-label'  %>
+	</div>
+	<div class="field form-floating mb-3 col-md-4">
+		<%= form.number_field :meds_cost, class: 'form-control form-control-lg', placeholder: 'Cost in PHP' %>
+		<%= form.label :meds_cost, 'Cost', class: 'form-label'  %>
+	</div>
+	<div class="actions">
+		<%= form.submit 'Submit', class: 'btn btn-outline-success' %>
+		<%= link_to 'Cancel', medicines_path, class: 'btn btn-outline-danger' %>
+	</div>
+<% end %>
