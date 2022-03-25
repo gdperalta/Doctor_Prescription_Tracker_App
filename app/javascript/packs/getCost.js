@@ -44,6 +44,8 @@ export const handleEvents = () => {
 	const discountOutput = document.querySelectorAll('.discount_output');
 	const l = medicines.length;
 
+	if (!medicines.length) return;
+
 	for (let i = 0; i < l; i++) {
 		if (!medicines[i].onchange) {
 			medicines[i].onchange = getTotalCost;
