@@ -6,7 +6,11 @@
 	<div class='row align-items-center mb-3'>
 		<div class='form-floating col-auto'>
 			<%= f.select :medicine_id, grouped_medicine_options, {}, {class: 'input_meds form-select'}%>
-			<%= f.label :medicine_id, 'Prescribed Medicine', class: 'ms-1'%>
+			<%= f.label :medicine_id, 'Prescribed Medicine', class: 'ms-1' %>
+		</div>
+		<div class="form-floating col-2">
+			<%= f.number_field :quantity, class: 'quantity_fields form-control', placeholder: 'Quantity' %>
+			<%= f.label :quantity, 'Quantity', class: 'ms-1' %>
 		</div>
 		<div class='discount-container col-auto d-flex align-items-center'>
 			<div class='form-floating col-3 me-3'>

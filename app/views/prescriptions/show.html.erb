@@ -16,6 +16,7 @@
 			<strong>Prescribed Medcicines:</strong>
 			<% @presc_medicines.each do |presc_medicine| %>
 				<p class='mt-1 ms-3'>
+					<%= presc_medicine.quantity%>
 					<%= get_medicine presc_medicine %> - 
 					Php <%= compute_discount presc_medicine%>
 				</p>

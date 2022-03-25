@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_22_152226) do
+ActiveRecord::Schema.define(version: 2022_03_25_100804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2022_03_22_152226) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "discount", default: 0
+    t.integer "quantity", default: 1
     t.index ["medicine_id"], name: "index_presc_medicines_on_medicine_id"
     t.index ["prescription_id"], name: "index_presc_medicines_on_prescription_id"
   end
