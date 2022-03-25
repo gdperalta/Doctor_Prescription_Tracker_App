@@ -7,11 +7,11 @@ module PrescriptionsHelper
 
   def get_medicine(presc_medicine)
     medicine = Medicine.find(presc_medicine.medicine_id)
-    medicine.meds_name
+    presc_medicine.quantity > 1 ? medicine.meds_name.pluralize : medicine.meds_name
   end
 
   def compute_discount(presc_medicine)
     medicine = Medicine.find(presc_medicine.medicine_id)
-    medicine.meds_cost * (1 - presc_medicine.discount / 100.0)
+    presc_medicine.quantity * medicine.meds_cost * (1 - presc_medicine.discount / 100.0)
   end
 end
