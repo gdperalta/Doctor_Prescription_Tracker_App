@@ -3,7 +3,14 @@ class PrescriptionsController < ApplicationController
   before_action :find_doctor, only: %i[index show new create edit update destroy]
 
   def index
-    @prescriptions = @doctor.prescriptions
+    # @prescriptions = @doctor.prescriptions
+    @q = @doctor.prescriptions.ransack(params[:q])
+    @prescriptions = @q.result(distinct: true)
+  end
+
+  def all_index
+    @q = Prescription.ransack(params[:q])
+    @prescriptions = @q.result(distinct: true)
   end
 
   def show

@@ -1,23 +1,19 @@
 class MedicinesController < ApplicationController
   before_action :set_medicine, only: %i[show edit update destroy]
 
-  # GET /medicines or /medicines.json
   def index
-    @medicines = Medicine.all
+    @q = Medicine.ransack(params[:q])
+    @medicines = @q.result(distinct: true)
   end
 
-  # GET /medicines/1 or /medicines/1.json
   def show; end
 
-  # GET /medicines/new
   def new
     @medicine = Medicine.new
   end
 
-  # GET /medicines/1/edit
   def edit; end
 
-  # POST /medicines or /medicines.json
   def create
     @medicine = Medicine.new(medicine_params)
 
@@ -32,7 +28,6 @@ class MedicinesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /medicines/1 or /medicines/1.json
   def update
     respond_to do |format|
       if @medicine.update(medicine_params)
@@ -45,7 +40,6 @@ class MedicinesController < ApplicationController
     end
   end
 
-  # DELETE /medicines/1 or /medicines/1.json
   def destroy
     @medicine.destroy
 
@@ -57,12 +51,10 @@ class MedicinesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_medicine
     @medicine = Medicine.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def medicine_params
     params.require(:medicine).permit(:meds_name, :meds_cost, :meds_category)
   end
