@@ -1,19 +1,27 @@
-<p id="notice"><%= notice %></p>
-<p>
-	<strong>Doctor name:</strong>
-	<%= @doctor.doctor_name %>
-</p>
-<p>
-	<strong>Doctor phone:</strong>
-	<%= @doctor.doctor_phone %>
-</p>
-<p>
-	<strong>Specialization:</strong>
-	<%= @doctor.specialization %>
-</p>
-<p>
-	<strong>Hospital:</strong>
-	<%= @doctor.hospital %>
-</p>
-<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
-<%= link_to 'Back', doctors_path %>
+<div class="row justify-content-center">
+	<div class="mt-4 p-5 bg-primary text-white rounded col-8">
+		<h1>
+			<%= @doctor.doctor_name %>
+		</h1>
+		<div class='mb-3'>
+			<strong>Specialization:</strong>
+			<span>
+				<%= @doctor.specialization %>
+			</span>
+			| 
+			<strong>Contact Number:</strong>
+			<span>
+				<%= @doctor.doctor_phone %>
+			</span>
+			|
+			<strong>Hospital:</strong>
+			<span>
+				<%= @doctor.hospital %>
+			</span>
+		</div>
+		<p>
+			<%= link_to 'Edit', edit_doctor_path(@doctor), class: 'btn btn-outline-light text-white me-1' %>
+			<%= link_to 'Back', doctors_path, class: 'btn btn-outline-light text-white' %>
+		</p>
+	</div>
+</div>

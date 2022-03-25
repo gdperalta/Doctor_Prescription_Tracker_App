@@ -1,24 +1,29 @@
-<p id="notice"><%= notice %></p>
-<p>
-	<strong>Title:</strong>
-	<%= @prescription.title %>
-</p>
-<p>
-	<strong>Description:</strong>
-	<%= @prescription.description %>
-</p>
-<p>
-	<strong>Total cost:</strong>
-	<%= @prescription.total_cost %>
-</p>
-<div>
-	<p><strong>Medcicines:</strong></p>
-	<p>
-		<% @presc_medicines.each do |presc_medicine| %>
-			<%= get_medicine presc_medicine %>
-			<%= compute_discount presc_medicine%>
-		<% end %>
-	</p>
+<div class="row justify-content-center">
+	<div class="mt-4 p-5 bg-primary text-white rounded col-8">
+		<h1>
+			<%= @prescription.title %>
+		</h1>
+		<div class='mb-3'>
+			<p>
+				<%= @prescription.description %>
+			</p>
+			<strong> Total Cost:</strong>
+			<span>
+				<%= @prescription.total_cost %>
+			</span>
+		</div>
+		<div>
+			<strong>Prescribed Medcicines:</strong>
+			<% @presc_medicines.each do |presc_medicine| %>
+				<p class='mt-1 ms-3'>
+					<%= get_medicine presc_medicine %> - 
+					Php <%= compute_discount presc_medicine%>
+				</p>
+			<% end %>
+		</div>
+		<p>
+			<%= link_to 'Edit', edit_doctor_prescription_path(@doctor, @prescription), class: 'btn btn-outline-light text-white me-1' %>
+			<%= link_to 'Back', doctor_prescriptions_path, class: 'btn btn-outline-light text-white' %>
+		</p>
+	</div>
 </div>
-<%= link_to 'Edit', edit_doctor_prescription_path(@prescription) %> |
-<%= link_to 'Back', doctor_prescriptions_path %>

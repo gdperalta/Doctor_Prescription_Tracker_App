@@ -1,15 +1,22 @@
-<p id="notice"><%= notice %></p>
-<p>
-	<strong>Meds name:</strong>
-	<%= @medicine.meds_name %>
-</p>
-<p>
-	<strong>Meds cost:</strong>
-	<%= @medicine.meds_cost %>
-</p>
-<p>
-	<strong>Meds Category:</strong>
-	<%= @medicine.meds_category %>
-</p>
-<%= link_to 'Edit', edit_medicine_path(@medicine) %> |
-<%= link_to 'Back', medicines_path %>
+<div class="row justify-content-center">
+	<div class="mt-4 p-5 bg-primary text-white rounded col-8">
+		<h1>
+			<%= @medicine.meds_name %>
+		</h1>
+		<div class='mb-3'>
+			<strong>Category:</strong>
+			<span>
+				<%= @medicine.meds_category %>
+			</span>
+			| 
+			<strong>Cost:</strong>
+			<span>
+				Php <%= @medicine.meds_cost %>
+			</span>
+		</div>
+		<p>
+			<%= link_to 'Edit', edit_medicine_path(@medicine), class: 'btn btn-outline-light text-white me-1' %>
+			<%= link_to 'Back', medicines_path, class: 'btn btn-outline-light text-white' %>
+		</p>
+	</div>
+</div>
