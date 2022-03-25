@@ -1,0 +1,10 @@
+<%= search_form_for @q do |f| %>
+	<div class='row align-items-center mb-3'>
+		<div class="col-4">
+			<%= f.search_field :doctor_name_or_hospital_or_specialization_cont, class: 'form-control', placeholder: 'Search by Name, Specialization, or Hospital' %>
+		</div>
+		<div class="col-auto">
+			<%= f.submit 'Search', class: 'btn btn-outline-info' %>
+		</div>
+	</div>
+<% end %>
