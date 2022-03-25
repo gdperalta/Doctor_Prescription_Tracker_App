@@ -1,4 +1,4 @@
-<div class="nested-fields row">
+<div class="nested-fields">
 	<%= f.hidden_field :_destroy %>
 	<div>
 		<%= f.number_field :prescription_id, type: :hidden %>
@@ -15,8 +15,8 @@
 			</div>
 			<%= f.range_field :discount, in: 0..100, class: 'discount_fields form-range' %>
 		</div>
-	</div>
-	<div>
-		<%= link_to "Remove", '#', class: "remove_fields btn btn-outline-danger mb-3" %>
+		<div class='col-auto'>
+			<%= link_to "Remove", '#', class: "remove_fields btn btn-outline-danger" %>
+		</div>
 	</div>
 </div>
