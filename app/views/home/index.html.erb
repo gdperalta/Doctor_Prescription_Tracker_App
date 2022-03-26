@@ -1,29 +1,85 @@
-<h2>Welcome Godfrey</h2>
-<!-- inside app/views/welcome/index.html.erb -->
-<%# <div class="collapse" id="navbarToggleExternalContent">
-	<div class="bg-dark p-4">
-		<h5 class="text-white h4">Collapsed content</h5>
-		<span class="text-muted">Toggleable via the navbar brand.</span>
-	</div>
-</div>
-<nav class="navbar navbar-dark bg-dark">
-	<div class="container-fluid">
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-	</div>
-</nav>
-<main>
-	<section class="py-5 text-center container">
-		<div class="row py-lg-5">
-			<div class="col-lg-6 col-md-8 mx-auto">
-				<h1 class="fw-light">Album example</h1>
-				<p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-				<p>
-					<a href="#" class="btn btn-primary my-2">Main call to action</a>
-					<a href="#" class="btn btn-secondary my-2">Secondary action</a>
-				</p>
+<h2 class='mb-4'>Welcome Godfrey!</h2>
+<div class="row">
+	<h4>Prescriptions</h4>
+	<% @prescriptions.each do |prescription| %>
+		<div class="col-auto mb-3">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">
+						<%= prescription.title %>
+					</h5>
+					<p class="card-text">
+						<%= prescription.description %>
+						<ul>
+							<% prescription.presc_medicines.each do |presc_medicine| %>
+								<li>
+									<%= presc_medicine.quantity%>
+									<%= get_medicine presc_medicine %>
+								</li>
+							<% end %>
+						</ul>
+					</p>
+				</div>
+				<div class="card-footer bg-tertiary">
+					<%= link_to 'See Prescription', doctor_prescription_path(prescription.doctor_id, prescription), class: 'btn btn-outline-primary' %>
+				</div>
 			</div>
 		</div>
-	</section>
-</main> %>
+	<% end %>
+</div>
+<div class="row">
+	<h4>Medicines</h4>
+	<% @medicines.each do |medicine| %>
+		<div class="col-auto mb-3">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">
+						<%= medicine.meds_name %>
+					</h5>
+					<p class="card-text">
+						<%= medicine.meds_category %> -
+						Php <%= medicine.meds_cost %>
+					</p>
+				</div>
+			</div>
+			<div class="card-footer bg-tertiary">
+				<%= link_to 'See Medicine', medicine, class: 'btn btn-outline-primary' %>
+			</div>
+		</div>
+	<% end %>
+</div>
+<div class="row">
+	<h4>Doctors</h4>
+	<% @doctors.each do |doctor| %>
+		<div class="col-auto mb-3">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">
+						<%= doctor.doctor_name %>
+					</h5>
+					<p class="card-text">
+						<strong>Specialization:</strong>
+						<span>
+							<%= doctor.specialization %>
+						</span>
+					</p>
+					<p class="card-text">
+						<strong>Contact Number:</strong>
+						<span>
+							<%= doctor.doctor_phone %>
+						</span>
+					</p>
+					<p class="card-text">
+						<strong>Hospital:</strong>
+						<span>
+							<%= doctor.hospital %>
+						</span>
+					</p>
+				</div>
+			</div>
+			<div class="card-footer bg-tertiary">
+				<td><%= link_to 'See Doctor', doctor, class: 'btn btn-outline-primary' %></td>
+			</div>
+		</div>
+	<% end %>
+</div>

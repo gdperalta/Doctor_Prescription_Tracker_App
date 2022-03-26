@@ -1,3 +1,7 @@
 class HomeController < ApplicationController
-  def index; end
+  def index
+    @prescriptions = Prescription.all
+    @medicines = Medicine.all
+    @doctors = Doctor.all
+  end
 end
