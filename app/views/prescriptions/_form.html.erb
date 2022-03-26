@@ -18,9 +18,11 @@
 		<%= form.text_field :description, class: 'form-control', placeholder: 'Description' %>
 		<%= form.label :description, 'Description' %>
 	</div>
-	<div class='form-floating mb-3 col-auto'>
-		<%= form.date_select :prescribed_date, {}, {class: 'form-select'}%>
-		<%= form.label :prescribed_date, 'Prescribed Date', class: 'ms-1' %>
+	<div class='mb-3 col-auto row'>
+		<div class="col-auto d-flex align-items-center">
+			<%= form.label :prescribed_date, 'Prescribed Date:', class: 'col-auto' %>
+			<%= form.date_select :prescribed_date, {}, {class: 'form-select ms-2'}%>
+		</div>
 	</div>
 	<div class="field row mb-3">
 		<%= form.label :total_cost, 'Total Cost:', class: 'col-sm-2 col-form-label' %>
