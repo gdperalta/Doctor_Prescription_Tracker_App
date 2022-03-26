@@ -8,4 +8,9 @@ module ApplicationHelper
     link_to(name, '#', class: 'add_fields btn btn-outline-primary mt-2 mb-3',
                        data: { id: id, fields: fields.gsub("\n", '') })
   end
+
+  def get_medicine(presc_medicine)
+    medicine = Medicine.find(presc_medicine.medicine_id)
+    presc_medicine.quantity > 1 ? medicine.meds_name.pluralize : medicine.meds_name
+  end
 end
