@@ -22,6 +22,7 @@
 @import '~bootstrap/scss/forms';
 @import '~bootstrap/scss/navbar';
 @import '~bootstrap/scss/nav';
+@import '~bootstrap/scss/card';
 @import '~bootstrap/scss/buttons';
 @import '~bootstrap/scss/button-group';
 @import '~bootstrap/scss/alert';
@@ -40,3 +41,4 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import './components/inputs';
 @import './components/buttons';
 @import './components/links';
+@import './components/cards';
