@@ -13,6 +13,13 @@
 	<div class="field form-floating mb-3 col-12">
 		<%= form.text_field :doctor_name, class: 'form-control', placeholder: 'Doctor Name' %>
 		<%= form.label :doctor_name, "Doctor's Name", class: 'form-label'  %>
+		<% if doctor.errors.full_messages_for(:doctor_name).any? %>
+			<div class="alert-danger" role="alert" id="error_explanation">
+				<% doctor.errors.full_messages_for(:doctor_name).each do |error| %>
+					<p><%= error %></p>
+				<% end %>
+			</div>
+		<% end %>
 	</div>
 	<div class="field form-floating mb-3  col-12">
 		<%= form.text_field :doctor_phone, class: 'form-control', placeholder: 'Contact Number' %>
