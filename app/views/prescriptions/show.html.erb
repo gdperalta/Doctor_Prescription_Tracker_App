@@ -18,7 +18,8 @@
 			<% @presc_medicines.each do |presc_medicine| %>
 				<p class='mt-1 ms-3'>
 					<%= presc_medicine.quantity%>
-					<%= get_medicine presc_medicine %> - 
+					<%= presc_medicine.medicine.meds_name%>
+					<span> - </span>
 					Php <%= compute_discount presc_medicine%>
 				</p>
 			<% end %>

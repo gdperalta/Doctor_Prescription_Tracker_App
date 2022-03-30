@@ -32,8 +32,9 @@
 					<ul>
 						<% prescription.presc_medicines.each do |presc_medicine| %>
 							<li>
+								<%= presc_medicine.medicine.meds_name%>
+								<span> - </span>
 								<%= presc_medicine.quantity%>
-								<%= get_medicine presc_medicine %>
 							</li>
 						<% end %>
 					</ul>
