@@ -17,7 +17,7 @@ Turbolinks.start();
 ActiveStorage.start();
 
 // Added for bootstrap
-require('@popperjs/core');
+// require('@popperjs/core');
 
 import 'bootstrap';
 
@@ -25,21 +25,21 @@ import 'bootstrap';
 import { Tooltip, Popover } from 'bootstrap';
 
 // The stylesheet location
-require('../stylesheets/application.scss');
+import '../stylesheets/application';
 
 // If using Turbolinks
 document.addEventListener('turbolinks:load', () => {
-	var tooltipTriggerList = [].slice.call(
+	let tooltipTriggerList = [].slice.call(
 		document.querySelectorAll('[data-bs-toggle="tooltip"]')
 	);
-	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+	let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 		return new Tooltip(tooltipTriggerEl);
 	});
 
-	var popoverTriggerList = [].slice.call(
+	let popoverTriggerList = [].slice.call(
 		document.querySelectorAll('[data-bs-toggle="popover"]')
 	);
-	var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+	let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 		return new Popover(popoverTriggerEl);
 	});
 });
