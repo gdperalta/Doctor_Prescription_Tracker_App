@@ -32,7 +32,7 @@ export const getTotalCost = () => {
 			quantities[index].value *
 			(1 - discounts[index].value / 100);
 	});
-	totalCost.value = total.toFixed(2);
+	totalCost.textContent = total.toFixed(2);
 
 	showDiscountValue();
 };
