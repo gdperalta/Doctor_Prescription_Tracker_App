@@ -77,7 +77,7 @@ class PrescriptionsController < ApplicationController
   end
 
   def prescription_params
-    params.require(:prescription).permit(:total_cost, :doctor_id, :title, :description, :prescribed_date,
+    params.require(:prescription).permit(:doctor_id, :title, :description, :prescribed_date,
                                          presc_medicines_attributes: %i[id prescription_id medicine_id quantity discount _destroy])
   end
 end
