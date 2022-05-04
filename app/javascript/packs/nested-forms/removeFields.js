@@ -17,13 +17,15 @@ export class removeFields {
 		if (!link || !e) return;
 		e.preventDefault();
 		let fieldParent = link.closest('.nested-fields');
+		let prescMedsField = fieldParent.querySelector('.presc_meds_fields');
 		let deleteField = fieldParent
 			? fieldParent.querySelector('input[type="hidden"]')
 			: null;
+
 		if (deleteField) {
 			deleteField.value = 1;
+			prescMedsField.innerHTML = '';
 			fieldParent.style.display = 'none';
-			// fieldParent.remove();
 			handleEvents();
 			getTotalCost();
 		}
