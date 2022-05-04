@@ -23,7 +23,7 @@ export class addFields {
 		let linkId = link.dataset.id;
 		let regexp = linkId ? new RegExp(linkId, 'g') : null;
 		let newFields = regexp ? link.dataset.fields.replace(regexp, time) : null;
-		newFields ? link.insertAdjacentHTML('beforebegin', newFields) : null;
+		newFields ? link.insertAdjacentHTML('afterend', newFields) : null;
 		handleEvents();
 		getTotalCost();
 	}
