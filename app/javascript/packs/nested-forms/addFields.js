@@ -15,6 +15,7 @@ export class addFields {
 		});
 	}
 
+	// Inserts a new field above the link
 	handleClick(link, e) {
 		if (!link || !e) return;
 		e.preventDefault();
