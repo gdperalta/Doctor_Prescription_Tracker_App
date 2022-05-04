@@ -20,7 +20,7 @@
 					<%= presc_medicine.quantity%>
 					<%= presc_medicine.medicine.meds_name%>
 					<span> - </span>
-					Php <%= compute_discount presc_medicine%>
+					Php <%= presc_medicine.discounted_price%>
 				</p>
 			<% end %>
 		</div>
