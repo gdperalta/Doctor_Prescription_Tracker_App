@@ -7,10 +7,7 @@ class Prescription < ApplicationRecord
   def total_cost
     total = 0
     presc_medicines.each do |presc_meds|
-      total +=
-        presc_meds.medicine.meds_cost *
-        presc_meds.quantity *
-        (1 - presc_meds.discount / 100.0)
+      total += presc_meds.discounted_price
     end
 
     total
