@@ -22,7 +22,8 @@ export class removeFields {
 			: null;
 		if (deleteField) {
 			deleteField.value = 1;
-			fieldParent.remove();
+			fieldParent.style.display = 'none';
+			// fieldParent.remove();
 			handleEvents();
 			getTotalCost();
 		}
