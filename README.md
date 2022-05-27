@@ -6,6 +6,8 @@
 
 The Doctor Prescription Tracker application allows a user to track the prescriptions given by their doctors.
 
+### **Homepage**
+
 ![homepage][homepage_pic]
 
 ## **Key Features**
@@ -21,41 +23,45 @@ The Doctor Prescription Tracker application allows a user to track the prescript
 
 ![ERD][erd_pic]
 
+## **Live Demo**
+
+Check out the live demo of the app in the link below:
+
+[Prescription Tracker App](https://prescription-tracker-app.herokuapp.com)
+
 ## **Getting Started**
 
 ### **Prerequisites**
 
 The setups steps expect the Builds listed above to be installed on the system
 
-1. Clone the repository
+### **Instructions**
 
-```
+- Clone the repository
+
+```bash
 git clone https://github.com/gdperalta/Doctor_Prescription_Tracker_App.git
 cd Doctor_Prescription_Tracker_App
 ```
 
-2. Install Dependencies
+- Install Dependencies
 
-```
+```bash
 bundle install
 yarn install
 ```
 
-3. Initialize the Database
+- Initialize the Database
 
-```
+```bash
 rails db:create db:migrate
 ```
 
-### **Executing the program**
+- Run the server
 
-Enter `rails server' in the command line interface to start the application
-
-## **Live Demo**
-
-Check out the live demo of the app in the link below:
-
-[Prescription Tracker App](https://prescription-tracker-app.herokuapp.com)
+```bash
+rails server
+```
 
 ## **System dependencies**
 
